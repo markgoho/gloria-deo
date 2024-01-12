@@ -1,0 +1,16 @@
+<!-- META TAGS -->
+<title>{{ .Title }}</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,minimum-scale=1" />
+
+{{ block "meta" . }}
+  {{ partial "meta.html" . }}
+{{ end }}
+
+{{ $options := (dict "targetPath" "style.css" "outputStyle" "compressed" ) }}
+{{ $style := resources.Get "styles.scss" | resources.ToCSS $options | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}" />
+
+<!-- Extras -->
+{{ block "scripts" . }}
+{{ end }}

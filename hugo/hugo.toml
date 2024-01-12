@@ -1,3 +1,4 @@
 baseURL = 'https://gloriadeocooperative.org/'
 languageCode = 'en-us'
 title = 'Gloria Deo Classical Cooperative'
+publishDir = "../public"
