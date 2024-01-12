@@ -175,6 +175,6 @@ dist
 .DS_Store
 
 /public/
-/resources/_gen/
+hugo/resources/_gen/
 /assets/jsconfig.json
 hugo_stats.json
