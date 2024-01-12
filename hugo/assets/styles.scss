@@ -3,10 +3,6 @@
 @import url('https://unpkg.com/open-props/colors-oklch.min.css');
 @import url('https://unpkg.com/open-props/oklch-hues.min.css');
 
-h1 {
-  color: red;
-}
-
 @media (dynamic-range: high) {
   /* does this browser understand display-p3? */
   @supports (color: oklch(99% 0.03 0)) {
