@@ -174,4 +174,7 @@ dist
 # Finder (MacOS) folder config
 .DS_Store
 
-hugo/resources
+/public/
+/resources/_gen/
+/assets/jsconfig.json
+hugo_stats.json
