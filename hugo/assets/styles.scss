@@ -6,9 +6,17 @@
 @media (dynamic-range: high) {
   /* does this browser understand display-p3? */
   @supports (color: oklch(99% 0.03 0)) {
-    h1 {
+    * {
       --color-hue: var(--hue-indigo);
-      color: var(--color-5);
     }
   }
 }
+
+body {
+  background-image: url('/images/christmas-spirit-day.avif');
+  background-size: contain;
+}
+// body {
+//   background-image: linear-gradient(to bottom, var(--color-2), var(--color-8)),
+//     url('/images/christmas-spirit-day.avif');
+// }
