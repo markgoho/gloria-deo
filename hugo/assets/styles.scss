@@ -2,6 +2,7 @@
 @import url('https://unpkg.com/open-props/normalize.min.css');
 @import url('https://unpkg.com/open-props/colors-oklch.min.css');
 @import url('https://unpkg.com/open-props/oklch-hues.min.css');
+@import url('https://unpkg.com/open-props/gray-oklch.min.css');
 
 @media (dynamic-range: high) {
   /* does this browser understand display-p3? */
@@ -12,11 +13,68 @@
   }
 }
 
-body {
-  background-image: url('/images/christmas-spirit-day.avif');
-  background-size: contain;
+:where(html) {
+  --font-sans: Prompt, sans-serif;
 }
+
 // body {
-//   background-image: linear-gradient(to bottom, var(--color-2), var(--color-8)),
-//     url('/images/christmas-spirit-day.avif');
+//   background-image: url('/images/christmas-spirit-day.avif');
+//   background-size: contain;
 // }
+
+body {
+  --content-width: 70ch;
+  display: grid;
+  grid-template-columns: 1fr var(--content-width) 1fr;
+}
+
+// body * {
+//   outline: 1px solid red;
+// }
+
+h1,
+h2 {
+  font-weight: var(--font-weight-8);
+}
+
+.logo-letter {
+  fill: var(--color-12);
+}
+
+.logo-gray {
+  --gray-hue: var(--hue-indigo);
+  --gray-chroma: 0.02;
+}
+
+.header,
+.main,
+.footer {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: subgrid;
+}
+
+.header {
+  background-color: var(--color-12);
+  padding: var(--size-fluid-5) 0;
+
+  .content-container {
+    grid-column: 2;
+    display: flex;
+    align-items: center;
+    gap: var(--size-fluid-3);
+  }
+
+  .gloria-deo-logo {
+    max-inline-size: 10rem;
+  }
+
+  .title,
+  .subtitle {
+    color: var(--gray-4);
+  }
+}
+
+.main > * {
+  grid-column: 2 / 3;
+}

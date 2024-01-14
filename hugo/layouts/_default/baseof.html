@@ -8,17 +8,17 @@
   </head>
 
   <body>
-    <header>
+    <header class="header">
       {{ block "header" . }}
         {{ partial "header.html" . }}
       {{ end }}
     </header>
 
-    <main>
+    <main class="main">
       {{ block "main" . }}{{ end }}
     </main>
 
-    <footer>
+    <footer class="footer">
       {{ block "footer" . }}
         {{ partial "footer.html" . }}
       {{ end }}

@@ -7,6 +7,14 @@
   {{ partial "meta.html" . }}
 {{ end }}
 
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;800&display=swap"
+  rel="stylesheet"
+/>
+
 {{ $options := (dict "targetPath" "style.css" "outputStyle" "compressed" ) }}
 {{ $style := resources.Get "styles.scss" | resources.ToCSS $options | resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
