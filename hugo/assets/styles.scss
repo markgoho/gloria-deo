@@ -7,14 +7,40 @@
 @media (dynamic-range: high) {
   /* does this browser understand display-p3? */
   @supports (color: oklch(99% 0.03 0)) {
-    * {
+    :root {
       --color-hue: var(--hue-indigo);
+      --gray-hue: var(--hue-indigo);
+      --gray-chroma: 0.02;
     }
   }
 }
 
 :where(html) {
   --font-sans: Prompt, sans-serif;
+}
+
+:root {
+  --link: var(--color-10);
+  --text-1: var(--gray-12);
+  --text-2: var(--gray-4);
+
+  --surface-1: var(--color-1);
+  --surface-2: var(--color-12);
+  --surface-3: var(--gray-4);
+  --surface-4: var(--surface-4-light);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --link: var(--color-5);
+    --text-1: var(--gray-3);
+    --text-2: var(--gray-6);
+
+    --surface-1: var(--color-14);
+    --surface-2: var(--color-13);
+    --surface-3: var(--gray-6);
+    --surface-4: var(--surface-4-dark);
+  }
 }
 
 // body {
@@ -24,21 +50,46 @@
 
 body {
   --content-width: 70ch;
+  --padding: var(--size-fluid-2); /* Define desired padding */
   display: grid;
-  grid-template-columns: 1fr var(--content-width) 1fr;
+  grid-template-columns:
+    minmax(var(--padding), 1fr) minmax(auto, var(--content-width))
+    minmax(var(--padding), 1fr);
+}
+
+a {
+  text-decoration: underline;
 }
 
 // body * {
 //   outline: 1px solid red;
 // }
 
-.logo-letter {
-  fill: var(--color-12);
+h2 {
+  font-weight: var(--font-weight-5);
+  margin-block-end: var(--size-fluid-1);
 }
 
-.logo-gray {
-  --gray-hue: var(--hue-indigo);
-  --gray-chroma: 0.02;
+p + h2 {
+  margin-block-start: var(--size-fluid-3);
+}
+
+p + p {
+  margin-block-start: var(--size-fluid-1);
+}
+
+.gloria-deo-logo {
+  .logo-letter {
+    fill: var(--surface-2);
+  }
+
+  .g-outline {
+    stroke: var(--surface-3);
+  }
+
+  .circle {
+    fill: var(--surface-3);
+  }
 }
 
 .header,
@@ -50,30 +101,57 @@ body {
 }
 
 .header {
-  background-color: var(--color-12);
-  padding: var(--size-fluid-5) 0;
+  background-color: var(--surface-2);
+  padding: var(--size-fluid-3) 0;
+  margin-block-end: var(--size-fluid-3);
+  align-items: center;
 
   .content-container {
-    grid-column: 2;
     display: flex;
     align-items: center;
     gap: var(--size-fluid-3);
   }
 
+  .wrapper {
+    grid-column: 2;
+    container: wrapper / inline-size;
+  }
+
   .gloria-deo-logo {
     max-inline-size: 10rem;
+  }
+  .title-container {
+    display: flex;
+    flex-direction: column;
   }
 
   .title,
   .subtitle {
     font-weight: var(--font-weight-5);
-    color: var(--gray-4);
+    color: var(--text-2);
+    text-transform: uppercase;
+    gap: var(--size-fluid-1);
   }
 
   .title {
-    line-height: 1.05;
-    margin-block-end: var(--size-fluid-1);
+    line-height: 1;
   }
+
+  .subtitle {
+    font-size: var(--font-size-3);
+    font-weight: var(--font-weight-4);
+  }
+}
+
+@container wrapper (width <= 50ch) {
+  .content-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.main {
+  color: var(--text-1);
 }
 
 .main > * {
