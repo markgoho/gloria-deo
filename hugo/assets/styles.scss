@@ -68,7 +68,7 @@ h2 {
   margin-block-end: var(--size-fluid-1);
 }
 
-p + h2 {
+* + h2 {
   margin-block-start: var(--size-fluid-3);
 }
 
@@ -153,6 +153,7 @@ p + p {
 
 .main {
   color: var(--text-1);
+  align-items: start;
 }
 
 .main,
