@@ -106,9 +106,40 @@ p + p {
   align-items: center;
 
   .content-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr min-content;
+    grid-template-areas:
+      'logo title'
+      'logo nav';
     align-items: center;
     gap: var(--size-fluid-3);
+  }
+
+  .site-nav {
+    grid-area: nav;
+  }
+
+  .nav-list {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    gap: var(--size-fluid-3);
+    list-style: none;
+  }
+
+  .nav-list-item {
+    padding: 0;
+  }
+
+  .nav-list-item a {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+  }
+
+  .home-link {
+    grid-area: logo;
   }
 
   .wrapper {
@@ -119,7 +150,9 @@ p + p {
   .gloria-deo-logo {
     max-inline-size: 10rem;
   }
+
   .title-container {
+    grid-area: title;
     display: flex;
     flex-direction: column;
   }
@@ -145,9 +178,14 @@ p + p {
 }
 
 @container wrapper (width <= 50ch) {
-  .content-container {
+  .header .content-container {
+    display: flex;
     flex-direction: column;
     text-align: center;
+  }
+
+  .header .nav-list {
+    flex-direction: column;
   }
 }
 
