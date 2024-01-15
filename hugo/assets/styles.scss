@@ -222,6 +222,13 @@ a {
   block-size: 10rem;
   align-items: center;
   margin-block-start: var(--size-fluid-3);
+
+  --link: var(--color-3);
+  --link-visited: var(--color-3);
+
+  a {
+    text-decoration: none;
+  }
   .footer-container {
     display: flex;
     flex-direction: column;
