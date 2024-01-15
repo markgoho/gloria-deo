@@ -4,21 +4,6 @@
 @import url('https://unpkg.com/open-props/oklch-hues.min.css');
 @import url('https://unpkg.com/open-props/gray-oklch.min.css');
 
-@media (dynamic-range: high) {
-  /* does this browser understand display-p3? */
-  @supports (color: oklch(99% 0.03 0)) {
-    :root {
-      --color-hue: var(--hue-indigo);
-      --gray-hue: var(--hue-indigo);
-      --gray-chroma: 0.02;
-    }
-  }
-}
-
-:where(html) {
-  --font-sans: Prompt, sans-serif;
-}
-
 :root {
   --link: var(--color-10);
   --text-1: var(--gray-12);
@@ -41,6 +26,18 @@
     --surface-3: var(--gray-6);
     --surface-4: var(--surface-4-dark);
   }
+}
+
+@supports (color: oklch(99% 0.03 0)) {
+  :root {
+    --color-hue: var(--hue-indigo);
+    --gray-hue: var(--hue-indigo);
+    --gray-chroma: 0.02;
+  }
+}
+
+:where(html) {
+  --font-sans: Prompt, sans-serif;
 }
 
 // body {
@@ -102,6 +99,7 @@ p + p {
 
 .header {
   background-color: var(--surface-2);
+
   padding: var(--size-fluid-3) 0;
   margin-block-end: var(--size-fluid-3);
   align-items: center;
@@ -131,6 +129,7 @@ p + p {
     color: var(--text-2);
     text-transform: uppercase;
     gap: var(--size-fluid-1);
+    letter-spacing: 1px;
   }
 
   .title {
