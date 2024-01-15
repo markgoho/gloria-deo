@@ -5,7 +5,6 @@
 @import url('https://unpkg.com/open-props/gray-oklch.min.css');
 
 :root {
-  --link: var(--color-10);
   --text-1: var(--gray-12);
   --text-2: var(--gray-4);
 
@@ -13,11 +12,13 @@
   --surface-2: var(--color-12);
   --surface-3: var(--gray-4);
   --surface-4: var(--surface-4-light);
+
+  --link: var(--color-10);
+  --link-visited: var(--color-10);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --link: var(--color-5);
     --text-1: var(--gray-3);
     --text-2: var(--gray-6);
 
@@ -25,6 +26,9 @@
     --surface-2: var(--color-13);
     --surface-3: var(--gray-6);
     --surface-4: var(--surface-4-dark);
+
+    --link: var(--color-5);
+    --link-visited: var(--color-5);
   }
 }
 
@@ -37,7 +41,7 @@
 }
 
 :where(html) {
-  --font-sans: Prompt, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
 }
 
 // body {
@@ -55,6 +59,12 @@ body {
   grid-template-rows: min-content 1fr min-content;
 }
 
+h1,
+h2 {
+  font-weight: var(--font-weight-5);
+  font-family: Prompt, sans-serif;
+}
+
 a {
   text-decoration: underline;
 }
@@ -62,19 +72,6 @@ a {
 // body * {
 //   outline: 1px solid red;
 // }
-
-h2 {
-  font-weight: var(--font-weight-5);
-  margin-block-end: var(--size-fluid-1);
-}
-
-* + h2 {
-  margin-block-start: var(--size-fluid-3);
-}
-
-p + p {
-  margin-block-start: var(--size-fluid-1);
-}
 
 .gloria-deo-logo {
   .logo-letter {
@@ -133,6 +130,8 @@ p + p {
   }
 
   .nav-list-item a {
+    --link: var(--color-5);
+    --link-visited: var(--color-5);
     padding: 0;
     margin: 0;
     text-decoration: none;
@@ -159,6 +158,7 @@ p + p {
 
   .title,
   .subtitle {
+    font-family: Prompt, sans-serif;
     font-weight: var(--font-weight-5);
     color: var(--text-2);
     text-transform: uppercase;
@@ -192,6 +192,24 @@ p + p {
 .main {
   color: var(--text-1);
   align-items: start;
+
+  p {
+    line-height: var(--font-lineheight-3);
+    font-size: var(--font-size-3);
+  }
+
+  h2 {
+    font-weight: var(--font-weight-5);
+    margin-block-end: var(--size-fluid-1);
+  }
+
+  * + h2 {
+    margin-block-start: var(--size-fluid-3);
+  }
+
+  p + p {
+    margin-block-start: var(--size-fluid-2);
+  }
 }
 
 .main,
