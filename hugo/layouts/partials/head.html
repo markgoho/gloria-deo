@@ -1,7 +1,7 @@
 <!-- META TAGS -->
 <title>{{ .Title }}</title>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,minimum-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 {{ block "meta" . }}
   {{ partial "meta.html" . }}
@@ -20,6 +20,14 @@
 {{ $options := (dict "targetPath" "style.css" "outputStyle" "compressed" ) }}
 {{ $style := resources.Get "styles.scss" | resources.ToCSS $options | resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
+
+<script
+  defer
+  type="text/javascript"
+  src="https://api.pirsch.io/pirsch.js"
+  id="pirschjs"
+  data-code="27O0Nv1tj0bPVKq6x82ZFM5cfxi701Kw"
+></script>
 
 <!-- Extras -->
 {{ block "scripts" . }}
