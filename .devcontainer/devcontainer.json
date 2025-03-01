@@ -17,7 +17,19 @@
   "forwardPorts": [1313],
 
   // Use 'postCreateCommand' to run commands after the container is created.
-  "postCreateCommand": "curl -fsSL https://bun.sh/install | bash"
+  "postCreateCommand": "curl -fsSL https://bun.sh/install | bash",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "golang.go",
+        "DavidAnson.vscode-markdownlint",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "tamasfe.even-better-toml",
+        "PKief.material-icon-theme"
+      ]
+    }
+  }
 
   // Configure tool-specific properties.
   // "customizations": {},
